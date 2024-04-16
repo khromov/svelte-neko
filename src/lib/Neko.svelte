@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import NekoImage from './oneko.gif';
 
 	let container: HTMLDivElement | null = null;
 
@@ -18,7 +17,28 @@
 	let idleAnimationFrame = 0;
 
 	const nekoSpeed = 10;
-	const spriteSets = {
+
+    interface SpriteSetsType {
+        idle: number[][];
+        alert: number[][];
+        scratchSelf: number[][]; 
+        scratchWallN: number[][];
+        scratchWallS: number[][];
+        scratchWallE: number[][];
+        scratchWallW: number[][];
+        tired: number[][];
+        sleeping: number[][];
+        N: number[][];
+        NE: number[][];
+        E: number[][];
+        SE: number[][];
+        S: number[][];
+        SW: number[][];
+        W: number[][];
+        NW: number[][];
+    }
+
+	const spriteSets: SpriteSetsType = {
 		idle: [[-3, -3]],
 		alert: [[-7, -3]],
 		scratchSelf: [
@@ -90,7 +110,7 @@
 		mousePosY = event.clientY;
 	}
 
-	function onAnimationFrame(timestamp) {
+	function onAnimationFrame(timestamp: any) {
 		// Stops execution if the neko element is removed from DOM
 
 		if (!lastFrameTimestamp) {
@@ -103,8 +123,8 @@
 		window.requestAnimationFrame(onAnimationFrame);
 	}
 
-	function setSprite(name, frame) {
-		const sprite = spriteSets[name][frame % spriteSets[name].length];
+	function setSprite(name: any, frame: any) {
+        const sprite = spriteSets[name as keyof SpriteSetsType][frame % spriteSets[name as keyof SpriteSetsType].length];
         backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
 	}
 
@@ -203,11 +223,11 @@
 		isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 		document.addEventListener('mousemove', onMouseMove);
-		window.requestAnimationFrame(onAnimationFrame);
+		const animationFrameHandle = window.requestAnimationFrame(onAnimationFrame);
 
 		return () => {
 			document.removeEventListener('mousemove', onMouseMove);
-			window.cancelAnimationFrame(onAnimationFrame);
+			window.cancelAnimationFrame(animationFrameHandle);
 		};
 	});
 </script>
