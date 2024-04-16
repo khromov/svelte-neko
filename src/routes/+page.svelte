@@ -1,3 +1,27 @@
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+    import Neko from '$lib/Neko.svelte';
+</script>
+
+<h1>svelte-neko</h1>
+
+<Neko />
+
+Example (component):
+
+<pre>
+    {`<script>
+        import { Neko } from 'svelte-neko';
+    </script>
+
+    <Neko />`}
+</pre>
+
+Example (action): 
+
+<pre>
+    {`<script>
+        import { action } from 'svelte-neko';
+    </script>
+
+    <div use:action>`}
+</pre>
