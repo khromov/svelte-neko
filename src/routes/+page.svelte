@@ -6,7 +6,7 @@
 
 <Neko />
 
-Example (component):
+Example (Svelte 4):
 
 <pre>
     {`<script>
@@ -16,11 +16,11 @@ Example (component):
     <Neko />`}
 </pre>
 
-Example (action): 
+Example (Svelte 5): 
 
 <pre>
     {`<script>
-        import { action } from 'svelte-neko';
+        import { Neko5 } from 'svelte-neko';
     </script>
 
     <div use:action>`}

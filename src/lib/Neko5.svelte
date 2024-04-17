@@ -1,18 +1,18 @@
+<svelte:options runes={true} />
+
 <script lang="ts">
-	import { onMount } from 'svelte';
+	let isReducedMotion = $state<Boolean>(true);
 
-	let isReducedMotion = true;
+	let nekoPosX = $state(32);
+	let nekoPosY = $state(32);
 
-	let nekoPosX = 32;
-	let nekoPosY = 32;
+	let mousePosX = $state(0);
+	let mousePosY = $state(0);
 
-	let mousePosX = 0;
-	let mousePosY = 0;
-
-	let frameCount = 0;
-	let idleTime = 0;
-	let idleAnimation: any = null;
-	let idleAnimationFrame = 0;
+	let frameCount = $state(0);
+	let idleTime = $state(0);
+	let idleAnimation: any = $state(null);
+	let idleAnimationFrame = $state(0);
 
 	const nekoSpeed = 10;
 
@@ -99,9 +99,9 @@
 		]
 	};
 
-	let lastFrameTimestamp: number = 0;
+	let lastFrameTimestamp: number = $state(0);
 
-    let backgroundPosition = '160px 32px';
+    let backgroundPosition = $state('160px 32px');
 
 	function onMouseMove(event: MouseEvent) {
 		mousePosX = event.clientX;
@@ -217,7 +217,7 @@
 		nekoPosY = Math.min(Math.max(16, nekoPosY), window.innerHeight - 16);
 	}
 
-	onMount(() => {
+	$effect(() => {
 		isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 		document.addEventListener('mousemove', onMouseMove);
