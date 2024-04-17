@@ -1,8 +1,9 @@
-# create-svelte
+# svelte-neko
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+A Svelte 4 / 5 port of [oneko.js](https://github.com/adryd325/oneko.js). 
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+Demo: https://svelte-neko.vercel.app/
+
 
 ## Creating a project
 
