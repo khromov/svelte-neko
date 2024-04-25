@@ -23,5 +23,5 @@ Example (Svelte 5):
         import { Neko5 } from 'svelte-neko';
     </script>
 
-    <div use:action>`}
+    <Neko5 />`}
 </pre>
