@@ -4,6 +4,9 @@ A Svelte 4 / 5 port of [oneko.js](https://github.com/adryd325/oneko.js).
 
 Demo: https://svelte-neko.vercel.app/
 
+YouTube video:
+
+https://www.youtube.com/watch?v=apIJlWJ3HgQ
 
 ## Creating a project
 
